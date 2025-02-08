@@ -9,7 +9,7 @@ const ReservationSchema = new mongoose.Schema(
     },
     date: {
       type: String,
-      required: true,
+      default: Date.now(),
     },
     guests: {
       type: Number,

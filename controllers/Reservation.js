@@ -20,7 +20,7 @@ export const getMyReservations = async (req, res) => {
 export const createReservation = async (req, res) => {
   try {
     const data = await Reservation.create(req.body)
-    res.status(202).json({ data })
+    res.status(201).json({ data })
   } catch (err) {
     res.status(400).json({ error: err })
   }
@@ -41,7 +41,7 @@ export const updateReservation = async (req, res) => {
       new: true,
       runValidators: true,
     })
-    res.status(202).json({ data })
+    res.status(201).json({ data })
   } catch (err) {
     res.status(400).json({ error: err })
   }
@@ -51,8 +51,8 @@ export const deleteReservation = async (req, res) => {
   try {
     await Reservation.findByIdAndDelete(req.params.id)
     res
-      .status(200)
-      .json({ message: `Reservation with id ${req.param.id} deleted !!!` })
+      .status(201)
+      .json({ message: `Reservation with id ${req.params.id} deleted !!!` })
   } catch (err) {
     res.status(400).json({ error: err })
   }
